@@ -1,3 +1,10 @@
 <template>
-  <h2>AppHeader.vue</h2>
+  <header>
+    <nav>
+      <ul>
+        <li><NuxtLink to="/">Index</NuxtLink></li>
+        <li><NuxtLink to="/about">About</NuxtLink></li>
+      </ul>
+    </nav>
+  </header>
 </template>
