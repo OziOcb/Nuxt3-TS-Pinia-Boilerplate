@@ -3,8 +3,10 @@
 </template>
 
 <script setup lang="ts">
+import { Meta } from '@zhead/schema'
+
 useHead({
   title: 'About Page',
-  meta: [{ name: 'description', content: 'About me page!' }],
+  meta: [{ name: 'description', content: 'About me page!' }] as Meta[],
 })
 </script>

@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { Meta } from '~/types/meta'
+import { Meta } from '@zhead/schema'
 const appConfig = useAppConfig()
 
 useHead({

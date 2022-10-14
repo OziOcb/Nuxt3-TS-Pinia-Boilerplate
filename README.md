@@ -40,3 +40,10 @@ npm run preview
 ```
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+
+## TypeScript
+
+- types/interfaces for elements used inside <head>
+https://github.com/harlan-zw/zhead/tree/main/packages/schema/src
+
+- Type checking on Dev is set to true, if you need to turn it off (for performance reasons) go to the `.nuxt.config.ts` file and set `typescript.typeCheck` to `false`
