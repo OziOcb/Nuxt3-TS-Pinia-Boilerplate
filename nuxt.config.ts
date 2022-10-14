@@ -3,11 +3,12 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
+  css: ['@/assets/sass/styles/index.sass'],
   vite: {
     css: {
       preprocessorOptions: {
-        scss: {
-          additionalData: '@use "@/assets/globalStyle/_colors.scss" as *;',
+        sass: {
+          additionalData: '@import "@/assets/sass/variables/_index.sass"',
         },
       },
     },

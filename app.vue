@@ -15,10 +15,3 @@ useHead({
   meta: [{ name: 'description', content: appConfig.description }] as Meta[],
 })
 </script>
-
-<style lang="scss">
-body {
-  background-color: $color-bg;
-  color: $color-text;
-}
-</style>
