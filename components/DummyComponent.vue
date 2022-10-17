@@ -2,41 +2,42 @@
   <hr />
   <img src="~/assets/img/youtube.png" alt="YouTube" width="60" />
 
-  <div>
-    <button @click="fetchHandler">Fetch</button>
-    <div v-if="isVisible">
-      <span v-if="isPending">Loading</span>
-
-      <template v-else>
-        <div>Title: {{ mountain?.title }}</div>
-        <div>Height: {{ mountain?.height }}</div>
-        <div>
-          <img :src="mountain?.image" alt="alt" width="280" />
-        </div>
-      </template>
-    </div>
+  <button @click="addNewPostHandler()">Add</button>
+  <div v-for="post in posts" :key="post.id">
+    {{ post.id }}. Title - {{ post.title }}
   </div>
   <hr />
 </template>
 
 <script setup lang="ts">
-import { Ref } from 'vue'
-import { Mountain } from '~/types/Mountain'
+interface ResponseInterface {
+  id: number
+  title: string
+  body: string
+  userId: number
+}
 
-const mountain: Ref<Mountain | null> = ref(null)
-const isVisible = ref(false)
-const isPending = ref(true)
-async function fetchHandler() {
-  isVisible.value = true
+const { data: posts } = await useFetch<ResponseInterface[]>(
+  'https://jsonplaceholder.typicode.com/posts'
+)
 
-  const url = 'https://api.nuxtjs.dev/mountains/aconcagua'
-  const { data, pending } = await useFetch<Mountain>(url, {
-    pick: ['title', 'height', 'image'],
-  })
+async function addNewPostHandler() {
+  try {
+    const res = await $fetch<ResponseInterface>(
+      'https://jsonplaceholder.typicode.com/posts',
+      {
+        method: 'POST',
+        body: {
+          title: 'foo ' + Math.floor(Math.random() * 100),
+          body: 'bar',
+          userId: 1,
+        },
+      }
+    )
 
-  console.log('-\n--\n data.value \n >', data.value, '\n--\n-')
-
-  isPending.value = pending.value
-  mountain.value = data.value
+    posts.value?.unshift(res)
+  } catch (e) {
+    console.log(e)
+  }
 }
 </script>
