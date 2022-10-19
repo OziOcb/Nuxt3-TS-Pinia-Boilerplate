@@ -1,6 +1,20 @@
 <template>
   <hr />
-  <img src="~/assets/img/youtube.png" alt="YouTube" width="60" />
+  <div>
+    .png icon from /assets/img/ folder -
+    <img src="~/assets/img/youtube.png" alt="YouTube" width="44" />
+  </div>
+
+  <div>
+    <!-- https://github.com/nuxt-modules/icon -->
+    icon from nuxt-icon module -
+    <div>From Library - <Icon name="uil:github" size="44px" /></div>
+
+    <div>
+      From custom component (~/components/global/)
+      <Icon name="IconInstagram" size="44px" />
+    </div>
+  </div>
 
   <button @click="addNewPostHandler()">Add</button>
   <div v-for="post in posts" :key="post.id">
