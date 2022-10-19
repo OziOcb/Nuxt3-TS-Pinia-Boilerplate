@@ -1,4 +1,6 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3, TS, Pinia - Boilerplate
+
+Repository - [GitHub](https://github.com/OziOcb/Nuxt3-TS-Pinia-Boilerplate)
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
