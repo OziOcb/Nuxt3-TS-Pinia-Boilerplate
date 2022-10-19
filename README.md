@@ -103,3 +103,7 @@ export const useCounterStore = defineStore('counter', {
 import { useCounterStore } from '@/stores/counter' // this line can be omitted!
 const countStore = useCounterStore()
 ```
+
+&nbsp;
+## .ENV
+- To see how to work with `environment variables`, read this - [nuxt docs](https://v3.nuxtjs.org/getting-started/configuration)
