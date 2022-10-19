@@ -38,7 +38,7 @@ interface ResponseInterface {
   userId: number
 }
 
-const countStore = useCountStore()
+const countStore = useCounterStore()
 
 const { data: posts } = await useFetch<ResponseInterface[]>(
   'https://jsonplaceholder.typicode.com/posts'

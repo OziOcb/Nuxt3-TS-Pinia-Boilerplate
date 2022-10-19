@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { Meta } from '@zhead/schema'
-const countStore = useCountStore()
+const countStore = useCounterStore()
 
 useHead({
   title: 'About Page',
