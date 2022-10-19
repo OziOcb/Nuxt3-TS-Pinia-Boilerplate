@@ -1,5 +1,12 @@
 <template>
   <hr />
+
+  <div>
+    <button @click="countStore.decrement()">-</button>
+    {{ countStore.count }}
+    <button @click="countStore.increment()">+</button>
+  </div>
+
   <div>
     .png icon from /assets/img/ folder -
     <img src="~/assets/img/youtube.png" alt="YouTube" width="44" />
@@ -30,6 +37,8 @@ interface ResponseInterface {
   body: string
   userId: number
 }
+
+const countStore = useCountStore()
 
 const { data: posts } = await useFetch<ResponseInterface[]>(
   'https://jsonplaceholder.typicode.com/posts'

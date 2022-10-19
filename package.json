@@ -16,6 +16,8 @@
     "vue-tsc": "^1.0.7"
   },
   "dependencies": {
-    "@types/node": "^18.8.0"
+    "@pinia/nuxt": "^0.4.3",
+    "@types/node": "^18.8.0",
+    "pinia": "^2.0.23"
   }
 }

@@ -1,6 +1,17 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ['nuxt-icon'],
+  imports: {
+    dirs: ['stores'],
+  },
+  modules: [
+    'nuxt-icon',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: ['defineStore'],
+      },
+    ],
+  ],
   typescript: {
     typeCheck: true,
   },
