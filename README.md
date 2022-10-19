@@ -102,7 +102,7 @@ export const useCounterStore = defineStore('counter', {
 
 ```js
 // someComponent.vue
-import { useCounterStore } from '@/stores/counter' // this line can be omitted!
+import { useCounterStore } from '@/stores/counter' // this line can be omitted thanks to auto-import!
 const countStore = useCounterStore()
 ```
 
