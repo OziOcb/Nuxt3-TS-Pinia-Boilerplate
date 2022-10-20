@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <h1>Welcome to the homepage</h1>
+  <section>
+    <h1>Nuxt3 - TS - Pinia - Boilerplate</h1>
+
     <DummyComponent />
-  </div>
+  </section>
 </template>

@@ -1,60 +1,42 @@
 <template>
-  <hr />
+  <h2>Store</h2>
+  <button @click="countStore.decrement()">-</button>
+  {{ countStore.count }}
+  <button @click="countStore.increment()">+</button>
 
-  <div>
-    <button @click="countStore.decrement()">-</button>
-    {{ countStore.count }}
-    <button @click="countStore.increment()">+</button>
-  </div>
+  <h2>Assets</h2>
+  <img src="~/assets/img/youtube.png" alt="YouTube" width="24" />
+  <Icon name="uil:github" size="24px" />
+  <Icon name="IconInstagram" size="24px" />
 
-  <div>
-    .png icon from /assets/img/ folder -
-    <img src="~/assets/img/youtube.png" alt="YouTube" width="44" />
-  </div>
-
-  <div>
-    <!-- https://github.com/nuxt-modules/icon -->
-    icon from nuxt-icon module -
-    <div>From Library - <Icon name="uil:github" size="44px" /></div>
-
-    <div>
-      From custom component (~/components/global/)
-      <Icon name="IconInstagram" size="44px" />
-    </div>
-  </div>
-
+  <h2>API</h2>
   <button @click="addNewPostHandler()">Add</button>
   <div v-for="post in posts" :key="post.id">
     {{ post.id }}. Title - {{ post.title }}
   </div>
-  <hr />
 </template>
 
 <script setup lang="ts">
-interface ResponseInterface {
-  id: number
-  title: string
-  body: string
-  userId: number
-}
-
+import { Post, NewPost } from '@/types/Post'
 const countStore = useCounterStore()
 
-const { data: posts } = await useFetch<ResponseInterface[]>(
+const { data: posts } = await useFetch<Post[]>(
   'https://jsonplaceholder.typicode.com/posts'
 )
 
-async function addNewPostHandler() {
+const addNewPostHandler = async () => {
+  const newPost: NewPost = {
+    title: 'newPost ' + Math.round(Math.random() * 100),
+    body: 'body 123',
+    userId: 411,
+  }
+
   try {
-    const res = await $fetch<ResponseInterface>(
+    const res = await $fetch<Post>(
       'https://jsonplaceholder.typicode.com/posts',
       {
         method: 'POST',
-        body: {
-          title: 'foo ' + Math.floor(Math.random() * 100),
-          body: 'bar',
-          userId: 1,
-        },
+        body: newPost as NewPost,
       }
     )
 
